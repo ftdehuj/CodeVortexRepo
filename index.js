@@ -1,17 +1,9 @@
-function levelOrderBottom(root) {
-  if (!root) return [];
-  const result = [];
-  const queue = [root];
-  while (queue.length) {
-    const levelSize = queue.length;
-    const currentLevel = [];
-    for (let i = 0; i < levelSize; i++) {
-      const node = queue.shift();
-      currentLevel.push(node.val);
-      if (node.left) queue.push(node.left);
-      if (node.right) queue.push(node.right);
-    }
-    result.unshift(currentLevel);
+function isSubsequence(s, t) {
+  let i = 0;
+  let j = 0;
+  while (i < s.length && j < t.length) {
+    if (s[i] === t[j]) i++;
+    j++;
   }
-  return result;
+  return i === s.length;
 }
